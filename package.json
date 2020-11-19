@@ -1,0 +1,15 @@
+{
+  "name": "roshambo",
+  "version": "1.0.0",
+  "description": "Rock Paper Scissors with Prince and Chad",
+  "main": "main.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Prince and Chad",
+  "license": "ISC",
+  "dependencies": {
+    "mocha": "^8.2.1",
+    "yargs": "^16.1.1"
+  }
+}

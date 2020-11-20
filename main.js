@@ -24,10 +24,11 @@ class computerPlayer {
         console.log(`Player plays ${playerMove}!`)
         if (playerMove !== 'rock' && playerMove !== 'paper' && playerMove !== 'scissors') {
             console.log(`INVALID MOVE. You played ${playerMove}. Must play rock, paper, or scissors.`)
+        } else {
+            let computerMove = computer.generateMove()
+            console.log(`Computer plays ${computerMove}!`)
+            console.log(`~${computer.decideWinner(playerMove, computerMove)} wins.~`)
         }
-        let computerMove = computer.generateMove()
-        console.log(`Computer plays ${computerMove}!`)
-        console.log(`~${computer.decideWinner(playerMove, computerMove)} wins.~`)
     }
 }
 

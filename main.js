@@ -2,19 +2,19 @@ const yargs = require('yargs/yargs')
 const { hideBin } = require('yargs/helpers')
 const argv = yargs(hideBin(process.argv)).argv
 
-const beats = { rock: 'scissors', paper: 'rock', scissors: 'paper' }
-
 class computerPlayer {
     constructor() {
     }
 
+    static beats = { rock: 'scissors', paper: 'rock', scissors: 'paper' }
+
     generateMove() {
-        return Object.keys(beats)[Math.floor(Math.random() * 3)]
+        return Object.keys(computerPlayer.beats)[Math.floor(Math.random() * 3)]
     }
 
     decideWinner(playerMove, computerMove) {
         if (playerMove === computerMove) return 'No one'
-        if (beats[playerMove] === computerMove) return 'Player'
+        if (computerPlayer.beats[playerMove] === computerMove) return 'Player'
         else return 'Computer'
     }
 
@@ -22,7 +22,7 @@ class computerPlayer {
         let computer = new computerPlayer()
         console.log('Playing a game of Roshambo against the computer.')
         console.log(`Player plays ${playerMove}!`)
-        if (!beats[playerMove]) {
+        if (!computerPlayer.beats[playerMove]) {
             console.log(`INVALID MOVE. You played ${playerMove}. Must play rock, paper, or scissors.`)
         } else {
             let computerMove = computer.generateMove()

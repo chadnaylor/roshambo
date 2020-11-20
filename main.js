@@ -23,7 +23,7 @@ class computerPlayer {
         console.log('Playing a game of Roshambo against the computer.')
         console.log(`Player plays ${playerMove}!`)
         if (playerMove !== 'rock' && playerMove !== 'paper' && playerMove !== 'scissors') {
-            console.log(`INVALID MOVE. You played ${move}. Must play rock, paper, or scissors.`)
+            console.log(`INVALID MOVE. You played ${playerMove}. Must play rock, paper, or scissors.`)
         }
         let computerMove = computer.generateMove()
         console.log(`Computer plays ${computerMove}!`)

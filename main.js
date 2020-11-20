@@ -2,18 +2,35 @@ const yargs = require('yargs/yargs')
 const { hideBin } = require('yargs/helpers')
 const argv = yargs(hideBin(process.argv)).argv
 
-let move = argv.move
-console.log('Playing a game of Roshambo against the computer.')
-console.log(`Player plays ${move}!`)
 
-if (move !== 'rock' && move !== 'paper' && move !== 'scissors') {
-    console.log(`INVALID MOVE. You played ${move}. Must play rock, paper, or scissors.`)
-} else if (move === 'rock') {
-    console.log(`Computer plays paper!`)
-} else if (move === 'paper') {
-    console.log(`Computer plays scissors!`)
-} else if (move === 'scissors') {
-    console.log(`Computer plays rock!`)
+class computerPlayer {
+    constructor() {
+
+    }
+
+    generateMove() {
+        let computer = ['rock', 'paper', 'scissors'];
+        return computer[Math.floor(Math.random() * 3)]
+    }
+
+    decideWinner(playerMove, computerMove) {
+        let beats = { rock: 'scissors', paper: 'rock', scissors: 'paper' }
+        if (playerMove === computerMove) return 'No one'
+        if (beats[playerMove] === computerMove) return 'Player'
+        else return 'Computer'
+    }
+
+    static playGame(playerMove) {
+        let computer = new computerPlayer()
+        console.log('Playing a game of Roshambo against the computer.')
+        console.log(`Player plays ${playerMove}!`)
+        if (playerMove !== 'rock' && playerMove !== 'paper' && playerMove !== 'scissors') {
+            console.log(`INVALID MOVE. You played ${move}. Must play rock, paper, or scissors.`)
+        }
+        let computerMove = computer.generateMove()
+        console.log(`Computer plays ${computerMove}!`)
+        console.log(`~${computer.decideWinner(playerMove, computerMove)} wins.~`)
+    }
 }
 
-console.log(`~Computer wins.~`)
+computerPlayer.playGame(argv.move)
